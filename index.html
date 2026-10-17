@@ -73,6 +73,14 @@
   }
   .project:hover { border-color: var(--accent); transform: translateY(-1px); }
   .project:focus-visible, .links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* A card with a site and a repository: the name covers the card, the repository link sits above it. */
+  div.project { position: relative; }
+  a.name { color: inherit; text-decoration: none; }
+  a.name::after { content: ""; position: absolute; inset: 0; border-radius: 14px; }
+  div.project:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+  a.name:focus-visible, .repo:focus-visible { outline: none; }
+  .repo { position: relative; z-index: 1; color: inherit; font-weight: 600; }
+  .repo:hover { color: var(--accent); }
   .top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .name { font: 700 17px/1.3 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
   .meta { display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); }
@@ -123,12 +131,19 @@
   <section>
     <h2>Genealogy</h2>
     <div class="projects">
-      <a class="project" href="https://github.com/trois-six/oxidgene">
+      <div class="project">
         <div class="top">
-          <span class="name">oxidgene</span>
-          <span class="meta"><span class="lang rust">Rust</span></span>
+          <a class="name" href="https://trois-six.github.io/oxidgene/">oxidgene</a>
+          <span class="meta"><span class="lang rust">Rust</span><a class="repo" href="https://github.com/trois-six/oxidgene">GitHub</a></span>
         </div>
         <p>A genealogy platform to create, view, edit and share family trees: individuals, relationships, events, sources and media.</p>
+      </div>
+      <a class="project" href="https://github.com/trois-six/oxidged">
+        <div class="top">
+          <span class="name">oxidged</span>
+          <span class="meta"><span class="lang rust">Rust</span><span class="badge">crates.io</span></span>
+        </div>
+        <p>A GEDCOM 5.5.1, 7.0 and 7.1 library and command-line tool: a lenient reader that keeps every file's data, and a writer whose output is always conformant.</p>
       </a>
       <a class="project" href="https://github.com/trois-six/rust-geneweb">
         <div class="top">
@@ -150,13 +165,13 @@
         </div>
         <p>Home Assistant integration for Teleco Automation boxes (Daisy Teleco, Biossun, Gibus…): pergolas, awnings and lights as native entities.</p>
       </a>
-      <a class="project" href="https://github.com/trois-six/aioteleco">
+      <div class="project">
         <div class="top">
-          <span class="name">aioteleco</span>
-          <span class="meta"><span class="lang python">Python</span><span class="badge">PyPI</span></span>
+          <a class="name" href="https://trois-six.github.io/aioteleco/">aioteleco</a>
+          <span class="meta"><span class="lang python">Python</span><span class="badge">PyPI</span><a class="repo" href="https://github.com/trois-six/aioteleco">GitHub</a></span>
         </div>
         <p>The async Python SDK behind ha-teleco: cloud and local control of Teleco home-automation boxes.</p>
-      </a>
+      </div>
     </div>
   </section>
 
